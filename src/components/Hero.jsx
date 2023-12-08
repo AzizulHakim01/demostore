@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <div className="md:bg-hero-pattern bg-hero-pattern-mb bg-center h-auto">
-      <div className=" w-[1152px] mx-auto">
-        <div className="md:h-[90vh] h-[100vh] w-[600px] flex flex-col gap-8 items-start justify-center">
+    <div className="md:bg-hero-pattern md:bg-fixed bg-[#d6dbdf] bg-auto bg-center h-auto w-full scroll-smooth">
+      <div className=" md:w-[1152px] md:mx-auto w-full">
+        <div className="md:h-[92vh] h-[100vh] md:w-[600px] flex flex-col md:gap-8 gap-10 px-4 md:px-0 md:items-start item-center justify-center">
           <h1 className="font-bold text-7xl text-zinc-800">
             Raining Offers For Hot Summer!
           </h1>
@@ -15,7 +15,7 @@ const Hero = () => {
             <Link className="font-bold px-5 py-2 border-2 border-black">FIND MORE</Link>
           </div>
         </div>
-        <div className=""></div>
+        <div className="hidden"></div>
       </div>
     </div>
   );
