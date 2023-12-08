@@ -26,7 +26,7 @@ const HeroBottomSlider = () => {
         {images.map((item, index) => {
           return (
             <SwiperSlide key={index}>
-              <img src={`/public/images/${item}`} alt="brand_logo" />
+              <img src={`/images/${item}`} alt="brand_logo" />
             </SwiperSlide>
           );
         })}
