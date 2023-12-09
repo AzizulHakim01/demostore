@@ -14,7 +14,7 @@ const Header = () => {
     <div className="flex w-full items-center bg-[#156290] h-24 absolute top-0 bg-opacity-75">
       <nav className="w-full flex px-8 justify-between items-center">
         <div className="flex items-center gap-8">
-          <img src="/images/logo.png" alt="logo" className="w-40" />
+          <Link to={"/"}><img src="/images/logo.png" alt="logo" className="w-40" /></Link>
           <ul
             className={`${
               showMenu
@@ -23,7 +23,7 @@ const Header = () => {
             }`}
           >
             <li>
-              <Link to="/everything" className="uppercase">
+              <Link to="/store" className="uppercase">
                 everything
               </Link>
             </li>
