@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const LimitedOffer = () => {
   return (
-    <section className="w-[1152px] bg-fixed mx-auto bg-[url('/public/images/limited.jpg')] bg-cover bg-no-repeat h-[550px] overflow-hidden">
+    <section className="md:w-[1152px] text-center md:text-start bg-fixed mx-auto bg-[url('/public/images/limited.jpg')] bg-cover bg-no-repeat md:h-[550px] overflow-hidden">
       <div className="bg-black bg-opacity-30">
         <div className="max-w-screen-xl px-4 py-32 md:w-[400px] sm:px-6 lg:h-screen lg:items-center lg:px-8">
           <h2 className="text-xl font-semibold text-white mb-3">Limited Time Offer</h2>

@@ -121,7 +121,7 @@ const Header = () => {
         {
           showMenu
           &&
-          <div className="md:hidden absolute top-20 left-0 flex items-center justify-between bg-[#5089ac] w-full px-8 py-4">
+          <div className="md:hidden absolute top-20 left-0 z-50 flex items-center justify-between bg-[#5089ac] w-full px-8 py-4">
             
           <ul className="flex flex-col gap-3 font-semibold text-white">
             <li>
