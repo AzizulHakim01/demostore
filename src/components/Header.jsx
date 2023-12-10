@@ -5,11 +5,15 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  const location = useLocation()
+  const active = (link) =>{
+    return location.pathname === link
+  }
   return (
     <div className="flex w-full items-center bg-[#156290] h-24 absolute top-0 bg-opacity-75">
       <nav className="w-full flex px-8 justify-between items-center">
@@ -23,22 +27,22 @@ const Header = () => {
             }`}
           >
             <li>
-              <Link to="/store" className="uppercase">
+              <Link to="/store" className={`uppercase ${active("/store")?"text-blue-600 font-bold":"text-white"}`}>
                 everything
               </Link>
             </li>
             <li>
-              <Link to="/women" className="uppercase">
+              <Link to="/women" className={`uppercase ${active("/women")?"text-blue-600 font-bold":"text-white"}`}>
                 women
               </Link>
             </li>
             <li>
-              <Link to="/men" className="uppercase">
+              <Link to="/men" className={`uppercase ${active("/men")?"text-blue-600 font-bold":"text-white"}`}>
                 men
               </Link>
             </li>
             <li>
-              <Link to="/accessories" className="uppercase">
+              <Link to="/accessories" className={`uppercase ${active("/accessories")?"text-blue-600 font-bold":"text-white"}`}>
                 accessories
               </Link>
             </li>
@@ -53,12 +57,12 @@ const Header = () => {
             }`}
           >
             <li>
-              <Link to={"/about"} className="uppercase">
+              <Link to={"/about"} className={`uppercase ${active("/about")?"text-blue-600 font-bold":"text-white"}`}>
                 about
               </Link>
             </li>
             <li>
-              <Link to={"/contact"} className="uppercase">
+              <Link to={"/contact"} className={`uppercase ${active("/contact")?"text-blue-600 font-bold":"text-white"}`}>
                 contact us
               </Link>
             </li>
