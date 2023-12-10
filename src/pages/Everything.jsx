@@ -6,7 +6,7 @@ import Store from '../components/Store'
 const Everything = () => {
   return (
     <Layout>
-      <div className="md:mt-24 bg-[#F5F7F9]">
+      <div className=" bg-[#F5F7F9]">
         <div className="mx-auto md:w-[1400px] grid md:grid-cols-4 gap-4 items-start justify-between">
           <div className="col-span-1 px-2 py-4 sticky top-0">
             <SideBar/>

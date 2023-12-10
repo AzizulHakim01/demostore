@@ -1,5 +1,5 @@
-import Layout from "antd/es/layout/layout";
 import React from "react";
+import Layout from "../components/Layout";
 
 const SingleProduct = () => {
   return (

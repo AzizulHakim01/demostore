@@ -28,7 +28,7 @@ const Featured = () => {
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {products.map((item) => {
             return (
-              <div className="flex flex-col justify-between items-center w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div className="flex flex-col justify-between items-center w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" key={item.id}>
                 <Link to="/single">
                   <img
                     className="p-8 rounded-t-lg h-80 hover:scale-110 transition-all"
@@ -50,7 +50,7 @@ const Featured = () => {
                       ${item.price}
                     </span>
                     <Link
-                      to="/single"
+                      to="/"
                       className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                       Add to cart

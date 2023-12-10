@@ -14,8 +14,9 @@ const Header = () => {
   const active = (link) =>{
     return location.pathname === link
   }
+
   return (
-    <div className="flex w-full items-center bg-[#156290] h-24 absolute top-0 bg-opacity-75">
+    <div className={`flex w-full items-center bg-[#156290] h-24 ${location.pathname !== "/"? "":"absolute top-0 "} bg-opacity-75 `}>
       <nav className="w-full flex px-8 justify-between items-center">
         <div className="flex items-center gap-8">
           <Link to={"/"}><img src="/images/logo.png" alt="logo" className="w-40" /></Link>
