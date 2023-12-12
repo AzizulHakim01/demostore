@@ -5,21 +5,31 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
-  const location = useLocation()
-  const active = (link) =>{
-    return location.pathname === link
-  }
+  const location = useLocation();
+  // Get the cart items from the Redux store
+  const cartItems = useSelector((state) => state.cart.items);
+
+  const active = (link) => {
+    return location.pathname === link;
+  };
 
   return (
-    <div className={`flex w-full items-center bg-[#156290] h-24 ${location.pathname !== "/"? "":"absolute top-0 "} bg-opacity-75 `}>
+    <div
+      className={`flex w-full items-center bg-[#156290] h-24 ${
+        location.pathname !== "/" ? "" : "md:absolute top-0 "
+      } bg-opacity-75 `}
+    >
       <nav className="w-full flex px-8 justify-between items-center">
         <div className="flex items-center gap-8">
-          <Link to={"/"}><img src="/images/logo.png" alt="logo" className="w-40" /></Link>
+          <Link to={"/"}>
+            <img src="/images/logo.png" alt="logo" className="w-40" />
+          </Link>
           <ul
             className={`${
               showMenu
@@ -28,22 +38,44 @@ const Header = () => {
             }`}
           >
             <li>
-              <Link to="/store" className={`uppercase ${active("/store")?"text-blue-600 font-bold":"text-white"}`}>
+              <Link
+                to="/store"
+                className={`uppercase ${
+                  active("/store") ? "text-blue-600 font-bold" : "text-white"
+                }`}
+              >
                 everything
               </Link>
             </li>
             <li>
-              <Link to="/women" className={`uppercase ${active("/women")?"text-blue-600 font-bold":"text-white"}`}>
+              <Link
+                to="/women"
+                className={`uppercase ${
+                  active("/women") ? "text-blue-600 font-bold" : "text-white"
+                }`}
+              >
                 women
               </Link>
             </li>
             <li>
-              <Link to="/men" className={`uppercase ${active("/men")?"text-blue-600 font-bold":"text-white"}`}>
+              <Link
+                to="/men"
+                className={`uppercase ${
+                  active("/men") ? "text-blue-600 font-bold" : "text-white"
+                }`}
+              >
                 men
               </Link>
             </li>
             <li>
-              <Link to="/accessories" className={`uppercase ${active("/accessories")?"text-blue-600 font-bold":"text-white"}`}>
+              <Link
+                to="/accessories"
+                className={`uppercase ${
+                  active("/accessories")
+                    ? "text-blue-600 font-bold"
+                    : "text-white"
+                }`}
+              >
                 accessories
               </Link>
             </li>
@@ -58,12 +90,22 @@ const Header = () => {
             }`}
           >
             <li>
-              <Link to={"/about"} className={`uppercase ${active("/about")?"text-blue-600 font-bold":"text-white"}`}>
+              <Link
+                to={"/about"}
+                className={`uppercase ${
+                  active("/about") ? "text-blue-600 font-bold" : "text-white"
+                }`}
+              >
                 about
               </Link>
             </li>
             <li>
-              <Link to={"/contact"} className={`uppercase ${active("/contact")?"text-blue-600 font-bold":"text-white"}`}>
+              <Link
+                to={"/contact"}
+                className={`uppercase ${
+                  active("/contact") ? "text-blue-600 font-bold" : "text-white"
+                }`}
+              >
                 contact us
               </Link>
             </li>
@@ -81,7 +123,7 @@ const Header = () => {
                   icon={faCartShopping}
                   style={{ color: "#ffffff" }}
                 />
-                <span className="flex absolute -mt-10 ml-5">0</span>
+                <span className="flex absolute -mt-10 ml-5">{cartItems.length}</span>
               </Link>
             </li>
             <li>
@@ -106,13 +148,13 @@ const Header = () => {
 
         {/* Cart Only for Mobile Devices */}
 
-              <Link to={"/cart"} className="uppercase md:hidden text-2xl text-white -ms-24 relative left-0">
-                <FontAwesomeIcon
-                  icon={faCartShopping}
-                  style={{ color: "#ffffff" }}
-                />
-                <span className="absolute -top-6">0</span>
-              </Link>
+        <Link
+          to={"/cart"}
+          className="uppercase md:hidden text-2xl text-white -ms-24 relative left-0"
+        >
+          <FontAwesomeIcon icon={faCartShopping} style={{ color: "#ffffff" }} />
+          <span className="absolute -top-6">{cartItems.length}</span>
+        </Link>
 
         {/* Nav bar tool */}
 
@@ -123,54 +165,47 @@ const Header = () => {
           onClick={() => setShowMenu(!showMenu)}
         />
         {/* Mobile navbar */}
-        {
-          showMenu
-          &&
+        {showMenu && (
           <div className="md:hidden absolute top-20 left-0 z-50 flex items-center justify-between bg-[#5089ac] w-full px-8 py-4">
-            
-          <ul className="flex flex-col gap-3 font-semibold text-white">
-            <li>
-              <Link to="/everything" className="uppercase">
-                everything
-              </Link>
-            </li>
-            <li>
-              <Link to="/women" className="uppercase">
-                women
-              </Link>
-            </li>
-            <li>
-              <Link to="/men" className="uppercase">
-                men
-              </Link>
-            </li>
-            <li>
-              <Link to="/accessories" className="uppercase">
-                accessories
-              </Link>
-            </li>
-          </ul>
-          <ul className="flex flex-col gap-3 font-semibold text-white">
-            <li>
-              <Link to={"/about"} className="uppercase">
-                about
-              </Link>
-            </li>
-            <li>
-              <Link to={"/contact"} className="uppercase">
-                contact us
-              </Link>
-            </li>
-            
-            <li className="uppercase">
-              Login
-            </li>
-            <li className="uppercase">
-              Register
-            </li>
+            <ul className="flex flex-col gap-3 font-semibold text-white">
+              <li>
+                <Link to="/everything" className="uppercase">
+                  everything
+                </Link>
+              </li>
+              <li>
+                <Link to="/women" className="uppercase">
+                  women
+                </Link>
+              </li>
+              <li>
+                <Link to="/men" className="uppercase">
+                  men
+                </Link>
+              </li>
+              <li>
+                <Link to="/accessories" className="uppercase">
+                  accessories
+                </Link>
+              </li>
             </ul>
-        </div>
-        }
+            <ul className="flex flex-col gap-3 font-semibold text-white">
+              <li>
+                <Link to={"/about"} className="uppercase">
+                  about
+                </Link>
+              </li>
+              <li>
+                <Link to={"/contact"} className="uppercase">
+                  contact us
+                </Link>
+              </li>
+
+              <li className="uppercase">Login</li>
+              <li className="uppercase">Register</li>
+            </ul>
+          </div>
+        )}
       </nav>
     </div>
   );

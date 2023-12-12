@@ -4,6 +4,10 @@ import Login from "./pages/Auth/Login"
 import Register from "./pages/Auth/Register"
 import Everything from "./pages/Everything"
 import SingleProduct from "./pages/SingleProduct"
+import Cart from "./components/cart"
+import Women from "./components/Women"
+import Men from "./components/Men"
+import Accessories from "./components/Accessories"
 function App() {
 
   return (
@@ -14,6 +18,10 @@ function App() {
         <Route path="/register" element={<Register />}/>
         <Route path="/store" element={<Everything />}/>
         <Route path="/single/:id" element={<SingleProduct />}/>
+        <Route path="/cart" element={<Cart />}/>
+        <Route path="/women" element={<Women />}/>
+        <Route path="/men" element={<Men />}/>
+        <Route path="/accessories" element={<Accessories />}/>
       </Routes>
     </>
   )

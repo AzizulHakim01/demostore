@@ -31,7 +31,7 @@ const MostViewedProducts = () => {
                   <img src={item.image} alt={item.title} className='w-20'/>
                 </div>
                 <div className="flex flex-col justify-start text-start gap-2 w-40">
-                  <Link to={"/single"}>{item.title}</Link>
+                  <Link to={`/single/${item.id}`}>{item.title}</Link>
                   <p>{item.price} $</p>
                 </div>
               </div>
